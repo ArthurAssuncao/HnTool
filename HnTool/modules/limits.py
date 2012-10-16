@@ -7,6 +7,9 @@ import re
 
 
 class Rule(MasterRule):
+    '''
+    Classe para verificar vulnerabilidades no arquivo limits.conf
+    '''
     def __init__(self, options):
         MasterRule.__init__(self, options)
         self.short_name = 'Limits'
@@ -16,9 +19,12 @@ class Rule(MasterRule):
         # ps aux | wc -l == numero de processos atual do usuario
 
     def requires(self):
+        '''This method should return all the required files to run
+        the module. Usually, it's the same as self.required_files'''
         return self.required_files
 
     def analyze(self, options):
+        '''Checa pela vulnerabilidade fork bomb'''
         check_results = self.check_results
         pam_file_path = self.required_files[0]
         limits_file_path = self.required_files[1]

@@ -25,7 +25,9 @@ import string
 
 
 class Format:
-
+    '''
+    Create the terminal output with statistics
+    '''
     description = "Human friendly output for terminal"
 
     def __init__(self, options):
@@ -35,6 +37,9 @@ class Format:
                             help="does not use colors on terminal output")
 
     def format_status(self, token):
+        '''
+        return string with specified status formatted
+        '''
         use_colors = self.conf.term_use_colors
         if token == 'ok':
             if use_colors:
@@ -62,7 +67,7 @@ class Format:
             else:
                 return '[  INFO  ]'
 
-    # Method to show the check results
+    #Method to show the check results
     def msg_status(self, msg, status):
         '''
         Method to show the check results
@@ -86,6 +91,9 @@ class Format:
                 self.format_status(status)
 
     def output(self, report, conf):
+        '''
+        Print output with in the terminal
+        '''
         self.conf = conf
         # Print all the results, from the 5 types of messages ( ok, low, medium, high and info ).
         # First message is the "ok" one ( m['results'][0] ). The second one is

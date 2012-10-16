@@ -26,13 +26,18 @@ import sys
 
 
 class Format:
-
+    '''
+    Create the html file with statistics output
+    '''
     description = "HTML output for a web browser"
 
     def __init__(self, options):
         pass
 
     def format_status(self, token):
+        '''
+        return string with specified status formatted
+        '''
         if token == 'ok':
             return '<td class="status-ok">OK</td>'
         elif token == 'low':
@@ -44,7 +49,7 @@ class Format:
         elif token == 'info':
             return '<td class="status-info">INFO</td>'
 
-    # Method to show the check results
+    #Method to show the check results
     def msg_status(self, msg, status):
         '''
         Method to show the check results
@@ -55,6 +60,9 @@ class Format:
                '</tr>'
 
     def statistics_graphic(self, statistics):
+        '''
+        Create a graphic with statistics
+        '''
         try:
             import matplotlib.pyplot as Matplot
         except ImportError, error:
@@ -92,6 +100,9 @@ class Format:
         return img_tag
 
     def output(self, report, conf):
+        '''
+        Print output with in html format
+        '''
         self.conf = conf
         # Print all the results, from the 5 types of messages ( ok, low, medium, high and info ).
         # First message is the "ok" one ( m['results'][0] ). The second one is

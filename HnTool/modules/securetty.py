@@ -7,6 +7,9 @@ from HnTool.modules.rule import Rule as MasterRule
 
 
 class Rule(MasterRule):
+    '''
+    Classe para verificar vulnerabilidades no arquivo securetty
+    '''
     def __init__(self, options):
         MasterRule.__init__(self, options)
         self.short_name = 'securetty'
@@ -15,9 +18,12 @@ class Rule(MasterRule):
         self.required_files = ['/etc/securetty']
 
     def requires(self):
+        '''This method should return all the required files to run
+        the module. Usually, it's the same as self.required_files'''
         return self.required_files
 
     def analyze(self, options):
+        '''Checa por vulnerabilidades no arquivo securetty'''
         check_results = self.check_results
         securetty_conf_file = self.required_files
 

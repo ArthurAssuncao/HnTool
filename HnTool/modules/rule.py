@@ -21,6 +21,9 @@
 import os
 
 class Rule:
+   '''
+   Define rules for modules
+   '''
    def __init__(self, options):
       '''Type must be "config" or "files"
       short_name
@@ -34,7 +37,7 @@ class Rule:
 
    def requires(self):
       '''This method should return all the required files to run
-      the module. Usually, it's the same as self.conf_file'''
+      the module. Usually, it's the same as self.required_files'''
       return None
 
    def analyze(self, options):

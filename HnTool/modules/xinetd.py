@@ -7,6 +7,9 @@ from HnTool.modules.rule import Rule as MasterRule
 
 
 class Rule(MasterRule):
+    '''
+    Classe para verificar vulnerabilidades nos arquivos do xinetd
+    '''
     def __init__(self, options):
         MasterRule.__init__(self, options)
         self.short_name = 'xinetd'
@@ -15,9 +18,12 @@ class Rule(MasterRule):
         self.required_files = ['/etc/xinetd.d', '/etc/xinetd.conf']
 
     def requires(self):
+        '''This method should return all the required files to run
+        the module. Usually, it's the same as self.required_files'''
         return self.required_files
 
     def analyze(self, options):
+        '''Checa a permissão dos arquivos do xinetd'''
         check_results = self.check_results
         xinetdd_file = self.required_files[0]
         xinetd_conf_file = self.required_files[1]

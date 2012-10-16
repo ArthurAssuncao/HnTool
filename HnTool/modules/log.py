@@ -8,6 +8,9 @@ from HnTool.modules.rule import Rule as MasterRule
 
 
 class Rule(MasterRule):
+    '''
+    Classe para verificar vulnerabilidades nos arquivos de log
+    '''
     def __init__(self, options):
         MasterRule.__init__(self, options)
         self.short_name = 'log'
@@ -16,9 +19,12 @@ class Rule(MasterRule):
         self.required_files = None
 
     def requires(self):
+        '''This method should return all the required files to run
+        the module. Usually, it's the same as self.required_files'''
         return self.required_files
 
     def analyze(self, options):
+        '''Checa a permissão nos arquivos de log do sistema'''
         check_results = self.check_results
         log_dir = '/var/log/*'
         files_dirs = glob.iglob(log_dir)
