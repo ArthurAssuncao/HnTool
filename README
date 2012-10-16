@@ -44,6 +44,9 @@ You can also see the hntool(1) manual by typing 'man hntool' at the command line
 or see the usage help: ::
 
 	$ hntool -h
+	
+Output in HTML:
+	# ./hntool -t html > statistics.html
 
 
 Understanding the output
