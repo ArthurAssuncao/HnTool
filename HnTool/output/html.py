@@ -22,6 +22,7 @@
 
 import HnTool.modules
 import string
+import sys
 
 
 class Format:
@@ -54,7 +55,11 @@ class Format:
                '</tr>'
 
     def statistics_graphic(self, statistics):
-        import matplotlib.pyplot as Matplot
+        try:
+            import matplotlib.pyplot as Matplot
+        except ImportError, error:
+            sys.stderr.write('{msg}\n'.format(msg=error.message))
+            return ''
         import base64
         import os  # para remover o grafico gerado
         # Matplot.title('types of results')
