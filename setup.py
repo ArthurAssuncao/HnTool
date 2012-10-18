@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+#from setuptools import setup
+import setuptools
+from distutils.core import setup
 from os.path import join
 from sys import prefix
 from HnTool import __version__
@@ -16,7 +18,9 @@ setup(name='HnTool',
       long_description=open('README').read(),
       author='Hugo Doria',
       author_email='hugodoria@gmail.com',
-      url='http://code.google.com/p/hntool/',
-      packages = ['HnTool', 'HnTool.output', 'HnTool.modules'],
+      url='https://github.com/hdoria/HnTool',
+      #packages = ['HnTool', 'HnTool.output', 'HnTool.modules'],
+      package_dir={'': '.'},
+      packages=setuptools.find_packages('.'),
       scripts=['hntool'],
       data_files=DATAFILES)
