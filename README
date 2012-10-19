@@ -31,6 +31,8 @@ How to install
 
 To install HnTool run the following command, as root: ::
 
+	# python setup.py
+		or
 	# python setup.py install --prefix /usr/ --root /
 
 How to use
